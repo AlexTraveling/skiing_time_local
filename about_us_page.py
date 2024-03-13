@@ -1,8 +1,7 @@
 import streamlit as sl
 
-# from home_page import top_section, bottom_section
 
-
+# Title Section
 def title_section():
 
    sl.markdown('''
@@ -17,16 +16,11 @@ def title_section():
    </style>
    ''', unsafe_allow_html=True)
 
-   sl.markdown('<h1 class="title">About Us</h1>',
-               unsafe_allow_html=True)
-   
-   sl.markdown('<h4 class="direction">Who we are and what makes Skiing Time so marvelous</h4>',
-               unsafe_allow_html=True)
+   sl.markdown('<h1 class="title">About Us</h1>', unsafe_allow_html=True) 
+   sl.markdown('<h4 class="direction">Who we are and what makes Skiing Time so marvelous</h4>', unsafe_allow_html=True)
 
 
 def new_title_section():
-
-   # st-emotion-cache-1n76uvr e1f1d6gn2
 
    sl.markdown('''
    <style>
@@ -48,13 +42,10 @@ def new_title_section():
    </style>
    ''', unsafe_allow_html=True)
 
-   sl.markdown('<div class="box"><h1 class="title">About Us</h1><p class="direction">Who we are and what makes Skiing Time so marvelous in AI searching</p></div>',
-               unsafe_allow_html=True)
+   sl.markdown('<div class="box"><h1 class="title">About Us</h1><p class="direction">Who we are and what makes Skiing Time so marvelous in AI searching</p></div>', unsafe_allow_html=True)
    
-   # sl.markdown('<p class="direction">Who we are and what makes Skiing Time so marvelous in AI searching</p>', unsafe_allow_html=True)
 
-
-# Team section
+# Team Section
 def team_section():
 
    sl.title('Who We Are')
@@ -62,7 +53,7 @@ def team_section():
    sl.image('about_us_page_material/who_we_are.png')
 
 
-# Member section
+# Member Section
 def member(name, job, work_list, portrait):
 
    column = sl.columns([50, 5, 45])
@@ -83,7 +74,6 @@ def member_section():
 
    sl.title('Members of Skiing Time Team')
    sl.write('The team consists of four members from China Agricultral University.')
-   # sl.image('about_us_page_material/who_we_are.png')
 
    sl.markdown('<br>',unsafe_allow_html=True)
 
@@ -100,7 +90,7 @@ def member_section():
    member('Wenhao Zhang', 'Test Manager', work_list, 'zwh')
 
 
-# Technology section
+# Technology Section
 def streamlit_part():
 
    column = sl.columns([2, 3])
@@ -146,8 +136,7 @@ def technology_section():
 
    sl.title('What Makes Skiing Time Marvelous')
    sl.write('Stack of advanced technology make Skiing Time the best app for AI searching of skiing photos.')
-   # sl.image('about_us_page_material/who_we_are.png')
-   
+
    sl.markdown('<br>', unsafe_allow_html=True)
    streamlit_part()
 
@@ -158,21 +147,20 @@ def technology_section():
    MySQL_part()
 
 
-# About Us page
+# About us Page
 def about_us_page():
 
-   # top_section()
+   page_name = 'About us · Skiing Time'
+   page_icon = '🏂'
+   sl.set_page_config(page_name, page_icon)
 
    title_section()
-   # new_title_section()
    sl.markdown('---')
    team_section()
    sl.markdown('---')
    member_section()
    sl.markdown('---')
    technology_section()
-
-   # bottom_section()
 
 
 if __name__ == '__main__':

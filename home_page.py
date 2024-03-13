@@ -37,7 +37,7 @@ def top_section():
       sl.markdown(f'[About us]({about_us_page_url})')
    
    with column[4]:
-      github_url = 'https://github.com/AlexTraveling/skiing_time_deploy'
+      github_url = 'https://github.com/AlexTraveling/skiing_time_local'
       sl.markdown(f'[GitHub]({github_url})')
 
 
@@ -129,10 +129,49 @@ def demonstration_section():
    sl.video(demonstration_video_path)
 
 
+# Marvel Section
+def marvel_section():
+
+   sl.markdown('''
+
+   <h1 class="title">
+      Marvelous Performance
+   </h1>
+
+   <br>
+
+   <p class="describe">
+      Better accuracy and less time cost of Ai Searching
+   </p>
+
+   <br>
+               
+   <style>
+
+   .title {
+      text-align: center;
+   }
+   .describe {
+      text-align: center;
+      color: grey;
+   }
+
+   </style>
+
+   ''', unsafe_allow_html=True)
+
+   sl.header('Accuracy 2x Compared to the Other App')
+   sl.markdown('<br>', unsafe_allow_html=True)
+   sl.image('home_page_material/accuracy_alpha.png')
+
+   sl.header('Time Cost 1/4 Compared to the Other App')
+   sl.markdown('<br>', unsafe_allow_html=True)
+   sl.image('home_page_material/time_cost_alpha.png')
+
+
 # Help in home page Section
 def help_section():
    sl.markdown('''
-
 
    <h1 class="title">
       Easier than Easier to Use
@@ -180,13 +219,17 @@ def information():
       sl.caption('Gallery of photos')
       sl.caption('AI searching')
       sl.caption('Download')
+      sl.caption('Help')
+      sl.caption('About us')
       
    with column[2]:
       sl.subheader('TECH')
       sl.caption('Streamlit')
       sl.caption('Python 3')
-      sl.caption('My SQL')
+      sl.caption('MySQL')
       sl.caption('CLIP model')
+      sl.caption('Multiprocess')
+      sl.caption('Keynote')
    
    with column[3]:
       sl.subheader('TEAM')
@@ -202,6 +245,7 @@ def information():
       sl.caption('Easthome')
       sl.caption('滑呗')
       sl.caption('GOSKI')
+      sl.caption('Open AI')
    
 
 # Bottom Section
@@ -214,7 +258,6 @@ def bottom_section():
       logo_path = 'home_page_material/skiing_time_logo_2.png'
       sl.image(logo_path)
 
-   # sl.text('a web app for AI searching')
    sl.markdown('''
 
    <p class="bottom">
@@ -241,16 +284,20 @@ def bottom_section():
 
    ''', unsafe_allow_html=True)
 
-   pass
-
 
 # Home Page
 def home_page():
+
+   page_name = 'Home · Skiing Time'
+   page_icon = '🏂'
+   sl.set_page_config(page_name, page_icon)
 
    top_section()
    title_section()
    goto_use_section()
    demonstration_section()
+   sl.markdown('---')
+   marvel_section()
    sl.markdown('---')
    help_section()
    information()

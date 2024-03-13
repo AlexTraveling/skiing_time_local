@@ -4,6 +4,7 @@ from transformers import AutoProcessor, CLIPModel
 import torch.nn as nn
 
 
+# CLIP Deep Learning Model
 def CLIP(double_image):
    
    a = double_image[0]

@@ -6,6 +6,7 @@ from userDatabase import if_exist
 from userDatabase import add_user
 
 
+# Title Section
 def title_section():
 
    sl.markdown('''
@@ -25,6 +26,7 @@ def title_section():
    sl.markdown('<p class="direction">Username and password are required for a new account</p>', unsafe_allow_html=True)
 
 
+# Account Section
 def account_section():
 
    with sl.form('sign_up'):
@@ -90,7 +92,12 @@ def goto_login_section():
                      f"{404}"])
       
 
+# Sign up Page
 def sign_up_page():
+
+   page_name = 'Sign up · Skiing Time'
+   page_icon = '🏂'
+   sl.set_page_config(page_name, page_icon)
 
    title_section()
    account_section()

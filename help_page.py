@@ -1,36 +1,9 @@
 import streamlit as sl
 import streamlit.components.v1 as com
 
-# from home_page import top_section, bottom_section
-
 
 # Title section
 def title_section():
-
-   # com.html('''
-
-   # <h1 class="title">
-   #    Only 3 Steps
-   # </h1>
-
-   # <h3 class="title">
-   #    learn how to select your photos by AI searching
-   # </h3>
-
-   # <style>
-   #    .title {
-   #       text-align: center;
-   #       # bold: true;
-   #       font-weight: 700;
-   #       color: rgb(49, 51, 63);
-   #       font-family: "Source Sans Pro", sans-serif;
-   #       }
-   #    # .st-emotion-cache-10trblm.e1nzilvr1 {
-   #    #    text-align: center;
-   #    # }
-   # </style>
-
-   # ''')
 
    sl.markdown('''
    <style>
@@ -46,10 +19,6 @@ def title_section():
 
    sl.markdown('<h1 class="title">Only Take Three Steps</h1>', unsafe_allow_html=True)
    sl.markdown('<h4 class="direction">learn how to select your photos by AI searching</h4>', unsafe_allow_html=True)
-
-   # sl.title('Only 3 Steps')
-   # sl.title('_Streamlit_ is :blue[cool] :sunglasses:')
-
    sl.markdown('---')
    
 
@@ -74,8 +43,6 @@ def step_2():
    with column[0]:
       sl.title('Upload One Old Photo')
       sl.write('System can analyze which part of photos belong to you automatically by the marvelous CLIP deep learning model.')
-      # sl.caption('System can analyze which part of photos belong to you automatically by the CLIP deep learning model.')
-
 
    with column[1]:
       sl.image('help_page_material/upload_2.png')
@@ -95,16 +62,12 @@ def step_3():
       sl.image('help_page_material/download.png')
 
 
-
 # Help page
 def help_page():
 
-   # sl.set_page_config(
-   #    page_title="help",    #页面标题
-   #    page_icon=":smile:"
-   # )
-
-   # top_section()
+   page_name = 'Help · Skiing Time'
+   page_icon = '🏂'
+   sl.set_page_config(page_name, page_icon)
 
    title_section()
    step_1()
@@ -112,8 +75,6 @@ def help_page():
    step_2()
    sl.markdown('---')
    step_3()
-
-   # bottom_section()
 
 
 if __name__ == '__main__':

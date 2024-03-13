@@ -51,8 +51,7 @@ def new_get_data_list(upload_image, now_image_list):
 
       image_path = f'image_catalog/image_{i}.jpg'
       data_list.append((Image.open(image_path), upload_image))
-   
-   # sl.warning(len(data_list))
+
    return data_list
 
 
@@ -60,9 +59,8 @@ def new_AI_search_section(upload_image, now_image_list):
 
    image_list = new_get_data_list(upload_image, now_image_list)
 
-   sl.warning(f'All {len(image_list)} photos are being detected...')
-
-   similarity_list, cost_time = get_similarity_by_pool(image_list)
+   with sl.spinner(f'All {len(image_list)} photos are being detected...'):
+      similarity_list, cost_time = get_similarity_by_pool(image_list)
 
    sl.success(f'AI search successfully! time cost: {round(cost_time, 2)}s.')
    time.sleep(0.2)
@@ -96,7 +94,6 @@ def upload_section(username, default_date, default_resort):
 
    # select section
    now_image_list = select_section(date, resort)
-   # sl.success(now_image_list)
 
    # change here
    now_image_list = now_image_list[0]
@@ -122,16 +119,17 @@ def upload_section(username, default_date, default_resort):
          else:
             upload_image = Image.open(upload_file)
             upload_image.save('upload_image/upload_image.png')
-            # new section
             similarity_list = new_AI_search_section(upload_image, now_image_list)
-            for s in similarity_list:
-               sl.success(s)
             time.sleep(1)
             next_section(username, similarity_list, now_image_list)
 
 
 # Upload Page
 def upload_page():
+
+   page_name = 'Upload · Skiing Time'
+   page_icon = '🏂'
+   sl.set_page_config(page_name, page_icon)
 
    username, default_date, default_resort = user_information_section()
    title_section(username)

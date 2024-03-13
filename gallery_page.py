@@ -87,7 +87,6 @@ def sidebar_section(username):
 def title_section(date, resort):
 
    sl.markdown('<h1>Gallery of Skiing Photos</h1>', unsafe_allow_html=True)
-   # sl.markdown('<p>All photo shown follow</p>', unsafe_allow_html=True)
 
 
 # Show Section
@@ -202,8 +201,11 @@ def show_section(image_catalog_list):
 # Gallery page
 def gallery_page():
 
-   username = user_information_section()
+   page_name = 'Gallery · Skiing Time'
+   page_icon = '🏂'
+   sl.set_page_config(page_name, page_icon)
 
+   username = user_information_section()
    date, resort = sidebar_section(username)
    title_section(date, resort)
    image_catalog_list, date, resort = select_section(date, resort)

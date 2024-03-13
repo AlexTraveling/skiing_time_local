@@ -90,6 +90,10 @@ def goto_sign_up_section():
 # Log in Page
 def login_page():
 
+   page_name = 'Log in · Skiing Time'
+   page_icon = '🏂'
+   sl.set_page_config(page_name, page_icon)
+
    title_section()
    if_goto_upload_page, username = login_section()
    goto_sign_up_section()

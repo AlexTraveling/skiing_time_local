@@ -45,7 +45,6 @@ def title_section(username):
 def threshold_section():
 
    default_threshold = 0.95
-
    threshold = sl.slider('', 0.0, 1.0, default_threshold)
 
    return threshold
@@ -120,6 +119,10 @@ def download_section(image_list, upper_list, now_image_list):
 # Download Page
 def download_page():
 
+   page_name = 'Download · Skiing Time'
+   page_icon = '🏂'
+   sl.set_page_config(page_name, page_icon)
+
    username, similarity_list, now_image_list = user_information_section()
    title_section(username)
 
@@ -128,9 +131,7 @@ def download_page():
 
    tip_section(similarity_list, threshold)
    upload_image = Image.open('upload_image/upload_image.png')
-
    image_sum, image_list, upper_list = showcase_section(upload_image, similarity_list, threshold, now_image_list)
-   # sl.markdown('---')
    download_section(image_list, upper_list, now_image_list)
 
 
