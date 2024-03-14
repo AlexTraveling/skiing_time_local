@@ -1,5 +1,4 @@
 import streamlit as sl
-import time
 import subprocess
 
 from userDatabase import get_user
@@ -54,7 +53,6 @@ def login_section():
       if if_goto_gallery_button:
          if user_account(username, password):
             sl.success('Login successfully')
-            time.sleep(2)
             return True, username
          else:
             sl.warning('Wrong username or password')
@@ -77,8 +75,6 @@ def goto_sign_up_section():
       sign_up_button = sl.button('Do not have a account ?  Sign up now', use_container_width=100)
 
    if sign_up_button:
-      sl.warning('Ready to sign up...')
-      time.sleep(0.5)
 
       subprocess.Popen(["streamlit", 
                      "run", 

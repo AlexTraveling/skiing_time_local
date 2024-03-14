@@ -44,7 +44,7 @@ def title_section(username):
 # Set Threshold Section
 def threshold_section():
 
-   default_threshold = 0.95
+   default_threshold = 0.90
    threshold = sl.slider('', 0.0, 1.0, default_threshold)
 
    return threshold
@@ -108,12 +108,13 @@ def download_section(image_list, upper_list, now_image_list):
       <style>
       ''', unsafe_allow_html=True)
 
-   download_button = sl.button('Download all checked photo')
+   download_button = sl.button('Download all checked photos')
    if download_button:
       for i in upper_list:
          if sl.session_state[f'checker{i}']:
-            image_list[i][0].save(f'download_image/save_photo_{now_image_list[i]}.png')
-            sl.success(f"Photo {now_image_list[i]} downloaded to local successfully.")
+            with sl.spinner(f"Photo {now_image_list[i]} is being downloaded"):
+               image_list[i][0].save(f'download_image/save_photo_{now_image_list[i]}.png')
+            sl.success(f"Download photo {now_image_list[i]} to local successfully")
    
 
 # Download Page

@@ -113,13 +113,13 @@ def quantity_show(image_catalog_list, date, resort):
       if image_sum == 0:
          sl.warning('No photo')
       else:
-         sl.success(f'{image_sum} photos')
+         sl.info(f'{image_sum} photos')
 
    with column[1]:
-      sl.success(date)
+      sl.info(date)
 
    with column[2]:
-      sl.success(resort)
+      sl.info(resort)
 
 
 def select_section(date, resort):

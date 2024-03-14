@@ -82,8 +82,6 @@ def goto_login_section():
       sign_up_button = sl.button('Back to log in Skiing Time', use_container_width=100)
 
    if sign_up_button:
-      sl.warning('Back to log in...')
-      time.sleep(0.5)
 
       subprocess.Popen(["streamlit", 
                      "run", 
